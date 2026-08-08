@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<rect width="512" height="512" rx="110" fill="#08201b"/>
+<path d="M256 55l150 150v102L256 457 106 307V205z" fill="#c9a135"/>
+<path d="M256 105l100 100v102L256 407 156 307V205z" fill="#102b24"/>
+<text x="256" y="310" text-anchor="middle" font-size="105" font-family="serif" fill="#f0d57a">وِردي</text>
+</svg>

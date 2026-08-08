@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#08201b">
+<meta name="description" content="وِردي — رفيقك اليومي في حفظ القرآن والصلاة">
+<link rel="manifest" href="manifest.webmanifest">
+<title>وِردي</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;900&display=swap');
+:root{--bg:#06120f;--gold:#d5b34e;--text:#eee8d8;--muted:#8d918d;--card:#0b2420}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% 0%,#0f3229 0%,#0a2420 45%,#06120f 100%);color:var(--text);font-family:Tajawal,sans-serif}
+button,input{font:inherit}button{cursor:pointer} .wrap{max-width:760px;margin:auto;padding:28px 16px 70px}
+h1,h2,h3{font-family:Amiri,serif}.header{text-align:center;position:relative;margin-bottom:28px}.settings{position:absolute;left:0;top:0;background:none;border:0;color:#d6b95c;font-size:22px}
+h1{font-size:48px;margin:0;background:linear-gradient(135deg,#f0d57a,#c9a135 55%,#9c7a26);-webkit-background-clip:text;color:transparent}
+.sub{color:#8e918c;font-size:13px}.date{margin-top:12px;color:#ddd5c0}.gdate{color:#777b77;font-size:12px}
+.streak{text-align:center;margin:25px 0 38px}.badge{width:130px;height:130px;margin:auto;display:flex;align-items:center;justify-content:center;border:2px solid #c9a135;background:#171207;clip-path:polygon(30% 0,70% 0,100% 30%,100% 70%,70% 100%,30% 100%,0 70%,0 30%);box-shadow:0 0 25px #c9a13544}.num{font:700 38px Amiri;color:#f5e6b8}.days{display:flex;justify-content:center;gap:10px;margin-top:20px}.day{text-align:center;font-size:10px;color:#686d69}.dot{width:32px;height:32px;border-radius:50%;border:1px solid #ffffff18;background:#ffffff08;display:flex;align-items:center;justify-content:center;margin-bottom:5px}.done{background:#d4ae43;color:#171207;border-color:#f0d57a}.rest{border-color:#28745c;color:#55b28c;background:#0c3028}.today{outline:2px solid #d5b34e;outline-offset:2px}
+.card{border:1px solid #ffffff12;background:#00000022;border-radius:18px;padding:18px;margin:16px 0}.row{display:flex;align-items:center;gap:12px}.icon{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:#14503e;color:#bfe7d8}.grow{flex:1}.count{font-size:12px;padding:6px 10px;border-radius:20px;background:#12362e;color:#9dd7c4}.title{font:700 22px Amiri;margin:0}.desc{font-size:12px;color:#8e918c}
+form{display:flex;gap:8px;margin:14px 0}input{flex:1;min-width:0;background:#0005;border:1px solid #ffffff12;border-radius:12px;padding:10px 12px;color:#eee;outline:none}input:focus{border-color:#d5b34e66}.add{border:0;border-radius:12px;padding:0 15px;background:#196348;color:white}.items{list-style:none;padding:0;margin:0}.item{display:flex;align-items:center;gap:10px;padding:9px 4px;border-radius:10px}.item:hover{background:#ffffff08}.check{width:25px;height:25px;border:2px solid #ffffff25;border-radius:50%;background:none;color:#102019}.check.on{background:#d5b34e;border-color:#e7cc75}.item span{flex:1;font-size:14px}.item span.strike{text-decoration:line-through;color:#686d69}.del{background:none;border:0;color:#666}.empty{text-align:center;color:#5f655f;font-size:12px;padding:12px}
+.prayer{background:#f5f1e8;color:#292821;border-radius:18px;padding:18px;margin:26px 0}.prayer .title{color:#292821}.pr{border:1px solid #ddd4c4;border-radius:13px;padding:10px;margin:9px 0}.prhead{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.pname{font-weight:700;width:55px}.opts{display:flex;gap:5px;flex-wrap:wrap;flex:1}.opts button,.sun button{border:1px solid #ddd4c4;background:white;border-radius:8px;padding:7px 9px;font-size:11px;color:#68645c}.opts button.sel{background:#d8b34c;color:#fff;border-color:#d8b34c}.sun{display:flex;gap:4px;align-items:center;font-size:11px;color:#777}.sun button.sel{background:#35a276;color:#fff;border-color:#35a276}.extras{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.extra{border-radius:13px;padding:12px;background:#eef0fb;border:1px solid #d7d9eb}.extra:nth-child(2){background:#fff0df;border-color:#f0d7ba}.extra button{width:50%;border:1px solid #ddd;border-radius:8px;padding:7px;background:white;font-size:11px}.extra button.sel{background:#6366c5;color:white}.extra:nth-child(2) button.sel{background:#ed8d37}
+.challenge-title{text-align:center;color:#e8cc77;font:700 27px Amiri;margin:30px 0 12px}.gold{border-color:#795f23;background:linear-gradient(135deg,#241d0c88,#0b0d0c66)}.challenge-text{color:#c9c3b4;font-size:14px;line-height:1.8}.save-note{text-align:center;color:#68716c;font-size:11px;margin-top:18px}
+.settingsBox{display:none;border:1px solid #795f2366;background:#0005;border-radius:16px;padding:14px;margin-bottom:20px}.settingsBox.show{display:block}.restBtns{display:flex;flex-wrap:wrap;gap:7px}.restBtns button{border:1px solid #ffffff14;background:#ffffff08;color:#999;border-radius:18px;padding:7px 11px;font-size:11px}.restBtns button.on{background:#765c1d;color:#fff;border-color:#c7a43c}
+@media(max-width:560px){.wrap{padding-top:20px}.days{gap:7px}.extras{grid-template-columns:1fr}.prhead{align-items:flex-start}.pname{width:45px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="header">
+<button class="settings" onclick="toggleSettings()" aria-label="الإعدادات">⚙</button>
+<h1>وِردي</h1><div class="sub">رفيقك اليومي في حفظ القرآن والصلاة</div>
+<div class="date" id="hijri"></div><div class="gdate" id="greg"></div>
+</header>
+
+<div id="settingsBox" class="settingsBox">
+<div style="color:#e8cc77;margin-bottom:8px">أيام الراحة</div>
+<div class="desc" style="margin-bottom:10px">في أيام الراحة لا ينقطع تسلسلك حتى لو لم تسجّل شيئًا.</div>
+<div class="restBtns" id="restBtns"></div>
+</div>
+
+<section class="streak">
+<div class="badge"><div><div style="font-size:20px">🔥</div><div class="num" id="streak">0</div><div style="font-size:10px;color:#d7c68e">يوم متتالي</div></div></div>
+<div class="days" id="days"></div>
+<div style="font-size:12px;color:#666;margin-top:15px"><span id="doneCount">0</span> / <span id="totalCount">0</span> مُنجَز في الورد اليوم</div>
+</section>
+
+<div id="sections"></div>
+
+<section class="prayer">
+<div class="row" style="margin-bottom:12px"><div class="grow"><h2 class="title">الصلاة</h2><div class="desc">صلِّ ثم سجّل كيف صليت اليوم</div></div><div class="count" style="background:#e5e1d7;color:#666"><span id="prayerCount">0</span>/5 صلوات</div></div>
+<div id="prayers"></div>
+<div class="extras">
+<div class="extra"><b>🌙 الوتر</b><div style="display:flex;margin-top:8px"><button id="witrYes" onclick="setExtra('witr',true)">صليت</button><button id="witrNo" onclick="setExtra('witr',false)">لم أصلِ</button></div></div>
+<div class="extra"><b>☀️ الضحى</b><div style="display:flex;margin-top:8px"><button id="duhaYes" onclick="setExtra('duha',true)">صليت</button><button id="duhaNo" onclick="setExtra('duha',false)">لم أصلِ</button></div></div>
+</div>
+</section>
+
+<h2 class="challenge-title">التحديات</h2>
+<section class="card gold">
+<div class="row"><div class="icon">🏆</div><div class="grow"><h3 class="title">تحدي الشهر <span id="monthName"></span></h3><div class="desc">اليوم <span id="hday"></span> من الشهر • <span id="hyear"></span> هـ</div></div></div>
+<p class="challenge-text" id="monthChallenge"></p>
+<div class="row"><button class="add" style="padding:10px 15px" id="monthlyToday" onclick="toggleMonthlyToday()">سجّل إنجاز اليوم</button><span class="desc" id="monthlyCount"></span></div>
+</section>
+
+<div id="challengeSections"></div>
+<div class="save-note">بياناتك تُحفظ تلقائيًا على هذا الجهاز.</div>
+</div>
+
+<script>
+const KEY='wirdi-pwa-v1';
+const state=JSON.parse(localStorage.getItem(KEY)||'null')||{
+ items:[], completions:{}, restDays:[4,5], prayerLog:{}, challengeLog:{},
+ challengeItems:{weekly:[],monthly:[]}, challengeCompletions:{weekly:{},monthly:{}}
+};
+const days=['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
+const prayers=[['fajr','الفجر'],['dhuhr','الظهر'],['asr','العصر'],['maghrib','المغرب'],['isha','العشاء']];
+const sections=[
+ ['new','الحفظ الجديد','ما تحفظه اليوم لأول مرة','مثال: البقرة ١ - ٥'],
+ ['near','المراجعة القريبة','مراجعة ما حفظته هذا الأسبوع','مثال: آل عمران ١ - ١٠'],
+ ['far','المراجعة البعيدة','مراجعة الحفظ القديم دوريًا','مثال: جزء عمّ كاملًا']
+];
+const challengeText={
+1:['محرم','صيام يومي التاسع والعاشر (عاشوراء) من محرم'],2:['صفر','الإكثار من الاستغفار والدعاء في كل حال'],
+3:['ربيع الأول','الإكثار من الصلاة على النبي ﷺ'],4:['ربيع الآخر','المحافظة على قيام الليل ولو بركعتين'],
+5:['جمادى الأولى','الإكثار من الصدقة ولو باليسير'],6:['جمادى الآخرة','المحافظة على وِرد يومي من تلاوة القرآن'],
+7:['رجب','الإكثار من الصيام، فهو من الأشهر الحُرُم'],8:['شعبان','الإكثار من الصيام تأسّيًا بالنبي ﷺ'],
+9:['رمضان','قيام الليل والحرص على ختم القرآن'],10:['شوال','صيام ستة أيام من شوال بعد العيد'],
+11:['ذو القعدة','الإكثار من الأعمال الصالحة، من الأشهر الحُرُم'],12:['ذو الحجة','صيام العشر الأوائل، وخاصة يوم عرفة']
+};
+function save(){localStorage.setItem(KEY,JSON.stringify(state))}
+function iso(d){return d.toISOString().slice(0,10)}
+function today(){let d=new Date();d.setHours(0,0,0,0);return d}
+function hijriParts(d){
+ try{let p=new Intl.DateTimeFormat('en-US-u-ca-islamic-umalqura',{day:'numeric',month:'numeric',year:'numeric'}).formatToParts(d);let o={};p.forEach(x=>o[x.type]=x.value);return {day:+o.day,month:+o.month,year:+o.year}}catch(e){return {day:1,month:1,year:1447}}
+}
+const now=today(), todayKey=iso(now), hp=hijriParts(now), monthKey=hp.year+'-'+hp.month;
+function weekKey(d){let x=new Date(d), day=x.getDay();x.setDate(x.getDate()-day);return 'w-'+iso(x)}
+function isRest(d){return state.restDays.includes(d.getDay())}
+function renderSettings(){
+ document.getElementById('restBtns').innerHTML=days.map((x,i)=>`<button class="${state.restDays.includes(i)?'on':''}" onclick="toggleRest(${i})">${x}</button>`).join('')
+}
+function toggleSettings(){document.getElementById('settingsBox').classList.toggle('show')}
+function toggleRest(i){state.restDays=state.restDays.includes(i)?state.restDays.filter(x=>x!==i):[...state.restDays,i].sort();save();renderAll()}
+function streak(){
+ let cur=new Date(now), active=new Set(Object.keys(state.completions).filter(k=>state.completions[k]?.length));
+ if(!(active.has(todayKey)||isRest(cur))) cur.setDate(cur.getDate()-1);
+ let n=0;
+ for(let i=0;i<3650;i++){let k=iso(cur);if(active.has(k)||isRest(cur)){n++;cur.setDate(cur.getDate()-1)}else break}
+ return n
+}
+function addItem(type){
+ let inp=document.getElementById('in-'+type), text=inp.value.trim(); if(!text)return;
+ state.items.push({id:Date.now()+'-'+Math.random().toString(36).slice(2,6),type,text});inp.value='';save();renderAll()
+}
+function toggleItem(id){
+ let a=state.completions[todayKey]||[]; state.completions[todayKey]=a.includes(id)?a.filter(x=>x!==id):[...a,id];save();renderAll()
+}
+function delItem(id){state.items=state.items.filter(x=>x.id!==id);Object.keys(state.completions).forEach(k=>state.completions[k]=(state.completions[k]||[]).filter(x=>x!==id));save();renderAll()}
+function renderSections(){
+ document.getElementById('sections').innerHTML=sections.map(s=>{
+  let list=state.items.filter(x=>x.type===s[0]), done=state.completions[todayKey]||[], sorted=[...list].sort((a,b)=>(done.includes(a.id)?1:0)-(done.includes(b.id)?1:0));
+  return `<section class="card"><div class="row"><div class="icon">📖</div><div class="grow"><h2 class="title">${s[1]}</h2><div class="desc">${s[2]}</div></div><div class="count">${list.filter(x=>done.includes(x.id)).length}/${list.length}</div></div>
+  <form onsubmit="event.preventDefault();addItem('${s[0]}')"><input id="in-${s[0]}" placeholder="${s[3]}"><button class="add">＋</button></form>
+  ${sorted.length?`<ul class="items">${sorted.map(x=>`<li class="item"><button class="check ${done.includes(x.id)?'on':''}" onclick="toggleItem('${x.id}')">${done.includes(x.id)?'✓':''}</button><span class="${done.includes(x.id)?'strike':''}">${esc(x.text)}</span><button class="del" onclick="delItem('${x.id}')">×</button></li>`).join('')}</ul>`:'<div class="empty">لم تضف شيئًا بعد — ابدأ بإضافة أول مقطع</div>'}</section>`
+ }).join('')
+}
+function prayerDay(){return state.prayerLog[todayKey]||{}}
+function setPrayer(k,status){
+ let d=prayerDay(), cur=d[k]||{}; d[k]={...cur,status:cur.status===status?null:status};state.prayerLog[todayKey]=d;save();renderAll()
+}
+function setSunnah(k,v){
+ let d=prayerDay(), cur=d[k]||{}; d[k]={...cur,sunnah:cur.sunnah===v?null:v};state.prayerLog[todayKey]=d;save();renderAll()
+}
+function setExtra(k,v){let d=prayerDay();d[k]=d[k]===v?null:v;state.prayerLog[todayKey]=d;save();renderAll()}
+function renderPrayers(){
+ let d=prayerDay();
+ document.getElementById('prayers').innerHTML=prayers.map(([k,n])=>{let s=d[k]||{};return `<div class="pr"><div class="prhead"><span class="pname">${n}</span><div class="opts">
+ ${[['home','البيت'],['mosque','المسجد'],['none','لم أصلِ']].map(([v,t])=>`<button class="${s.status===v?'sel':''}" onclick="setPrayer('${k}','${v}')">${t}</button>`).join('')}</div><div class="sun">السنة <button class="${s.sunnah===true?'sel':''}" onclick="setSunnah('${k}',true)">نعم</button><button class="${s.sunnah===false?'sel':''}" onclick="setSunnah('${k}',false)">لا</button></div></div></div>`}).join('');
+ document.getElementById('prayerCount').textContent=prayers.filter(([k])=>d[k]?.status).length;
+ for(let k of ['witr','duha']){document.getElementById(k+'Yes').className=d[k]===true?'sel':'';document.getElementById(k+'No').className=d[k]===false?'sel':''}
+}
+function toggleMonthlyToday(){let a=state.challengeLog[monthKey]||[];state.challengeLog[monthKey]=a.includes(hp.day)?a.filter(x=>x!==hp.day):[...a,hp.day];save();renderAll()}
+function addChallenge(cat){
+ let inp=document.getElementById('ch-'+cat),text=inp.value.trim();if(!text)return;
+ state.challengeItems[cat].push({id:Date.now()+'-'+Math.random().toString(36).slice(2,6),text});inp.value='';save();renderAll()
+}
+function toggleChallenge(cat,id){let key=cat==='weekly'?weekKey(now):monthKey,data=state.challengeCompletions[cat],a=data[key]||[];data[key]=a.includes(id)?a.filter(x=>x!==id):[...a,id];save();renderAll()}
+function delChallenge(cat,id){state.challengeItems[cat]=state.challengeItems[cat].filter(x=>x.id!==id);save();renderAll()}
+function renderChallenges(){
+ let info=challengeText[hp.month]||['',''];document.getElementById('monthName').textContent=info[0];document.getElementById('monthChallenge').textContent=info[1];document.getElementById('hday').textContent=hp.day;document.getElementById('hyear').textContent=hp.year;
+ let daysDone=state.challengeLog[monthKey]||[];document.getElementById('monthlyCount').textContent=daysDone.length+' يومًا هذا الشهر';document.getElementById('monthlyToday').textContent=daysDone.includes(hp.day)?'✓ أنجزت اليوم':'سجّل إنجاز اليوم';
+ let cats=[['weekly','تحديات الأسبوع','تتجدد كل أسبوع','مثال: قراءة صفحة تفسير يوميًا'],['monthly','تحديات الشهر','تتجدد كل شهر هجري','مثال: ختم جزء كامل من القرآن']];
+ document.getElementById('challengeSections').innerHTML=cats.map(c=>{let [cat,title,desc,ph]=c,key=cat==='weekly'?weekKey(now):monthKey,items=state.challengeItems[cat],done=state.challengeCompletions[cat][key]||[];return `<section class="card"><div class="row"><div class="icon">🎯</div><div class="grow"><h3 class="title">${title}</h3><div class="desc">${desc}</div></div><div class="count">${done.length}/${items.length}</div></div><form onsubmit="event.preventDefault();addChallenge('${cat}')"><input id="ch-${cat}" placeholder="${ph}"><button class="add">＋</button></form>${items.length?`<ul class="items">${items.map(x=>`<li class="item"><button class="check ${done.includes(x.id)?'on':''}" onclick="toggleChallenge('${cat}','${x.id}')">${done.includes(x.id)?'✓':''}</button><span class="${done.includes(x.id)?'strike':''}">${esc(x.text)}</span><button class="del" onclick="delChallenge('${cat}','${x.id}')">×</button></li>`).join('')}</ul>`:'<div class="empty">لم تضف تحديًا بعد — ابدأ بإضافة أول تحدٍ</div>'}</section>`}).join('')
+}
+function renderHeader(){
+ document.getElementById('greg').textContent=new Intl.DateTimeFormat('ar-SA',{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(now);
+ document.getElementById('hijri').textContent=new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura',{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(now);
+}
+function renderAll(){
+ renderHeader();renderSettings();renderSections();renderPrayers();renderChallenges();
+ document.getElementById('streak').textContent=streak();let done=state.completions[todayKey]||[];document.getElementById('doneCount').textContent=done.length;document.getElementById('totalCount').textContent=state.items.length;
+ let ds=[];for(let i=6;i>=0;i--){let d=new Date(now);d.setDate(d.getDate()-i);let k=iso(d),a=(state.completions[k]||[]).length>0,r=isRest(d);ds.push(`<div class="day"><div class="dot ${a?'done':r?'rest':''} ${k===todayKey?'today':''}">${a?'✓':r?'○':''}</div>${days[d.getDay()].slice(0,3)}</div>`)}document.getElementById('days').innerHTML=ds.join('');
+}
+function esc(s){return s.replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+renderAll();
+if('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(()=>{});
+</script>
+</body>
+</html>
